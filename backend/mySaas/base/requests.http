@@ -1,0 +1,29 @@
+POST http://localhost:8000/api/signin
+Content-Type: application/json
+
+{
+  "email": "h1@gmail.com",
+    "password" : "testpassword123",
+    "full_name": "Test User"
+
+    
+}
+
+### Sign Up
+POST http://localhost:8000/api/signup
+Content-Type: application/json
+
+{
+  "email": "h3@gmail.com",
+    "password" : "Hello#1122",
+    "full_name": "bilal"
+}
+
+
+### Get Users
+GET http://localhost:8000/api/users/2
+Content-Type: application/json
+Authorization: Bearer <token>
+
+
+
