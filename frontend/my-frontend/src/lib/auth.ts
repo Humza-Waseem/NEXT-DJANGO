@@ -1,4 +1,3 @@
-// src/lib/auth.ts
 import { jwtDecode } from 'jwt-decode';
 
 export const setToken = (token: string) => {

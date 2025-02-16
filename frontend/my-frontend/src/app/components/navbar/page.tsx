@@ -3,9 +3,6 @@ import Link from "next/link";
 import * as React from "react";
 import Image from "next/image";
 
-
-
-
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -52,8 +49,19 @@ export default function Navbar() {
   return (
     <>
       <div className="grid grid-rows-[20px_1fr_20px] Light items-center justify-items-center p-8 pb-20">
+       
+
         <NavigationMenu>
           <NavigationMenuList>
+
+
+          <div className="flex items-center justify-center  mr-24"> 
+           <Link href="/">
+            <Image src="/logo.png" alt="Logo" width={100} height={80} />
+           </Link>
+          </div>
+
+
             {Object.entries(navBarItems).map(([label, linked]) => (
               <NavigationMenuItem key={label}>
                 <Link href={linked} legacyBehavior passHref>
@@ -67,16 +75,16 @@ export default function Navbar() {
             <NavigationMenuItem>
               <NavigationMenuTrigger>Communities</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                <ul className="grid w-[100px] gap-2 p-2 md:w-[100px] md:grid-cols-2 lg:w-[300px]">
                   {socialIcons.map((socialsIcon) => (
-                    <li key={socialsIcon.title} title={socialsIcon.title}>
+                    <li key={socialsIcon.title} title={socialsIcon.title} className="flex items-center justify-center ">
                       <Link legacyBehavior href={socialsIcon.href} passHref>
-                        <a className="block p-2 hover:bg-gray-200 rounded">
+                        <a className="block p-2 hover:bg-gray-200 rounded  width-20 height-20">
                           <Image
                             src={socialsIcon.logo}
                             alt={socialsIcon.title}
-                            width={32}
-                            height={32}
+                            width={20}
+                            height={20}
                           />
                         </a>
                       </Link>
@@ -88,6 +96,13 @@ export default function Navbar() {
             <NavigationMenuItem>
               <ModeToggle />
             </NavigationMenuItem>
+
+            
+          <div className="flex items-center justify-center "> 
+           <Button variant={"mainButton"} className="ml-24">
+            <Link href='/signin'>Login</Link>
+            </Button>
+          </div>
           </NavigationMenuList>
         </NavigationMenu>
       </div>

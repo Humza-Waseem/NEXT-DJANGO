@@ -1,6 +1,9 @@
-# requirements.txt
-django==5.0
-django-ninja==1.0
+django<5.0
+django-ninja==0.22.2  # Last version before Pydantic v2
 python-jose==3.3.0
 python-dotenv==1.0.0
 django-cors-headers==4.3.0
+django-allauth
+requests
+django-ninja-jwt[crypto]
+pydantic<2

@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-(=%78xr$qh)f^@)i=99)t*d^%reuly66hhf5h^_+4*_mjh($4x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+
 
 
 # Application definition
@@ -38,21 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',  # Required for allauth
-
-
-
- 
-
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',  # Or other providers
     # third party apps
     'corsheaders',
-     # Required for allauth
-
-
-      # Add the provider(s) you need
+    'ninja_jwt',
+    'ninja_extra',
     # local apps
     'base',
     
@@ -82,8 +77,11 @@ MIDDLEWARE = [
     'allauth.account.middleware.AccountMiddleware',
 ]
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
+
+    "http://localhost:3000",  # Allow frontend
+    "http://127.0.0.1:3000",
 ]
+
 
 ROOT_URLCONF = 'mySaas.urls'
 

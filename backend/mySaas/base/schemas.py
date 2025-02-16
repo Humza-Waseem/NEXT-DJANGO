@@ -8,6 +8,7 @@ class UserSchema(Schema):
     full_name: str
     username: str
 
+
     class Config:
         from_attributes = True  # Enables ORM mode for Pydantic v2 (equivalent to `orm_mode = True` in Pydantic v1)
         
@@ -28,3 +29,16 @@ class TokenSchema(Schema):
 class ErrorSchema(Schema):
     detail: str
     
+
+class CourseSchema(Schema):
+    id: int
+    name: str
+    slug: str
+    description: str
+    status: str
+    created_at: str
+    updated_at: str
+
+    class Config:
+        from_attributes = True  # Enables ORM mode for Pydantic v2 (equivalent to `orm_mode = True` in Pydantic v1)
+        

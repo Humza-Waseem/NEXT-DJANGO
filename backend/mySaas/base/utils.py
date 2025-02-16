@@ -1,14 +1,11 @@
-# auth/utils.py
-from jose import jwt
 from datetime import datetime, timedelta
-from django.conf import settings
+from jose import JWTError, jwt
 
-def create_access_token(data: dict, expires_delta: timedelta = None):
+SECRET_KEY = "django-insecure-(=%78xr$qh)f^@)i=99)t*d^%reuly66hhf5h^_+4*_mjh($4x"
+ALGORITHM = "HS256"
+
+def create_access_token(data: dict, expires_delta: timedelta):
     to_encode = data.copy()
-    if expires_delta:
-        expire = datetime.utcnow() + expires_delta
-    else:
-        expire = datetime.utcnow() + timedelta(minutes=15)
+    expire = datetime.utcnow() + expires_delta
     to_encode.update({"exp": expire})
-    encoded_jwt = jwt.encode(to_encode, settings.SECRET_KEY, algorithm="HS256")
-    return encoded_jwt
+    return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
