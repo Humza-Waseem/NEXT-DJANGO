@@ -8,8 +8,11 @@ interface User {
 
 }
 
-export default async function Page() {
+export default async function GetUsersData() {
     const data = await fetch('http://localhost:8000/api/users/');
+    if (!data.ok) {
+        throw new Error(`HTTP error! Status: ${data.status}`);
+    }
     const users: User[] = await data.json();
     
   

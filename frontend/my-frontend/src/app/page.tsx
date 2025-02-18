@@ -1,6 +1,31 @@
+
+'use client'
 import { Button } from "@/components/ui/button";
 
+
+import { useState } from "react";
+import { log } from "console";
+
+
+async function GetUsersData() {
+  const response = await fetch("http://localhost:8000/api/users/");
+  if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+  }
+  return response.json(); // ✅ Return data, NOT JSX
+}
+
+
+
 export default function Home() {
+
+    const [dataStr, setDataStr] = useState("");
+
+    async function HandleClick() {
+      const data = await GetUsersData();
+      setDataStr(JSON.stringify(data));
+      // console.log("Raw Data:",data);
+  }
   return (
     <>
       <div className="grid grid-rows-[20px_1fr_20px] Light  items-center   p-8 pb-20 ">
@@ -12,6 +37,10 @@ export default function Home() {
           </small>
           <br />
           <Button variant="mainButton">Get Started</Button>
+          <Button onClick={ HandleClick}> Get Users </Button>
+          <div className="text-center text-sm ">     
+            {dataStr}
+          </div>
         </h1>
       </div>
     

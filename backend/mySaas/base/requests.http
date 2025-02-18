@@ -42,7 +42,8 @@ Content-Type: application/json
 ### Get Me, meaning to check the current user, ie. the user who is logged in
 GET http://127.0.0.1:8000/api/me
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5NzM2MjQ2LCJpYXQiOjE3Mzk3MzU5NDYsImp0aSI6IjZmMzFhZWQ1MTEzMTRhZDU4NWFkMzJhNTQxYzZlMWE4IiwidXNlcl9pZCI6MX0.3IZwFXh7RMoqLIxmF6eP1gknRUFHfYuZiYqqGaqPc7U
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5OTAzMDQ4LCJpYXQiOjE3Mzk5MDI3NDgsImp0aSI6IjJkNzk0N2YzMmYzNjRhYzE5OTQ0NjM1NmU1YmFiODgzIiwidXNlcl9pZCI6MX0.8y3aMtDh6CYGrFD8pUu-NfkUemz7uuj6_tU6StL49bw
+
 
 
 ### Get Users
