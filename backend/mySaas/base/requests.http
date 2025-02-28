@@ -1,18 +1,17 @@
-POST http://localhost:8000/api/signin
+GET http://localhost:3000/api/signin
 Content-Type: application/json
 
 {
-  "email": "h1@gmail.com",
-    "password" : "testpassword123",
-    "full_name": "Test User"  
+    "email": "head12@gmail.com",
+    "password" : "Hello#1122", 
 }
 
 
 ###
-GET http://localhost:8000/api/courses
+GET http://127.0.0.1:8000/api/courses
 Content-Type: application/json
 Content-Type: application/json
-Authorization: Bearer <token>
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQwMjI4ODYzLCJpYXQiOjE3NDAyMjUyNjMsImp0aSI6IjA3YTZmYjhiY2IyNjRmMmNiYjAyMzhlYWZjNTZjMWM1IiwidXNlcl9pZCI6MX0.vcQbaNJYM_9oGkvlGJLhu3hvw6z2S0PUq0BWpr3Dp5o
 
 
 
@@ -21,9 +20,9 @@ POST http://localhost:8000/api/signup
 Content-Type: application/json
 
 {
-  "email": "h15@gmail.com",
+  "email": "hello1@gmail.com",
     "password" : "Hello#1122",
-    "full_name": "farjad"
+    "full_name": "Bilal"
 }
 
 ### Getting the JWTToken
@@ -42,8 +41,7 @@ Content-Type: application/json
 ### Get Me, meaning to check the current user, ie. the user who is logged in
 GET http://127.0.0.1:8000/api/me
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM5OTAzMDQ4LCJpYXQiOjE3Mzk5MDI3NDgsImp0aSI6IjJkNzk0N2YzMmYzNjRhYzE5OTQ0NjM1NmU1YmFiODgzIiwidXNlcl9pZCI6MX0.8y3aMtDh6CYGrFD8pUu-NfkUemz7uuj6_tU6StL49bw
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQwMjI4ODYzLCJpYXQiOjE3NDAyMjUyNjMsImp0aSI6IjA3YTZmYjhiY2IyNjRmMmNiYjAyMzhlYWZjNTZjMWM1IiwidXNlcl9pZCI6MX0.vcQbaNJYM_9oGkvlGJLhu3hvw6z2S0PUq0BWpr3Dp5o
 
 
 ### Get Users

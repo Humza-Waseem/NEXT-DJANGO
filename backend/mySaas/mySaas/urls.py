@@ -8,5 +8,6 @@ urlpatterns = [
     path('api/', api.urls),
     path('accounts/', include('allauth.urls')),  # Allauth URLs
     path('', include('base.urls')),
+    
 
 ]

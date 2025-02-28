@@ -16,6 +16,7 @@ import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "../dark-mode/page";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const navBarItems = {
@@ -46,22 +47,23 @@ export default function Navbar() {
     },
   ];
 
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("access_token");
+    setIsAuthenticated(!!token);
+  }, []);
+
   return (
     <>
-      <div className="grid grid-rows-[20px_1fr_20px] Light items-center justify-items-center p-8 pb-20">
-       
-
-        <NavigationMenu>
-          <NavigationMenuList>
-
-
-          <div className="flex items-center justify-center  mr-24"> 
-           <Link href="/">
-            <Image src="/logo.png" alt="Logo" width={100} height={80} />
-           </Link>
-          </div>
-
-
+      <div className="grid grid-rows-[20px_1fr_20px] Light items-center justify-items-center p-8 pb-20 ">
+        <NavigationMenu> 
+          <NavigationMenuList >
+            <div className="flex items-center justify-center  mr-24">
+              <Link href="/">
+                <Image src="/logo.png" alt="Logo" width={100} height={80} />
+              </Link>
+            </div>
             {Object.entries(navBarItems).map(([label, linked]) => (
               <NavigationMenuItem key={label}>
                 <Link href={linked} legacyBehavior passHref>
@@ -71,13 +73,16 @@ export default function Navbar() {
                 </Link>
               </NavigationMenuItem>
             ))}
-
             <NavigationMenuItem>
               <NavigationMenuTrigger>Communities</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-[100px] gap-2 p-2 md:w-[100px] md:grid-cols-2 lg:w-[300px]">
                   {socialIcons.map((socialsIcon) => (
-                    <li key={socialsIcon.title} title={socialsIcon.title} className="flex items-center justify-center ">
+                    <li
+                      key={socialsIcon.title}
+                      title={socialsIcon.title}
+                      className="flex items-center justify-center "
+                    >
                       <Link legacyBehavior href={socialsIcon.href} passHref>
                         <a className="block p-2 hover:bg-gray-200 rounded  width-20 height-20">
                           <Image
@@ -96,13 +101,29 @@ export default function Navbar() {
             <NavigationMenuItem>
               <ModeToggle />
             </NavigationMenuItem>
-
             
-          <div className="flex items-center justify-center "> 
-           <Button variant={"mainButton"} className="ml-24">
-            <Link href='/signin'>Login</Link>
-            </Button>
-          </div>
+              {isAuthenticated ? (
+                // Show Logout button when authenticated
+                <Button variant={"destructive"}
+               
+                 
+                  onClick={() => {
+                    localStorage.removeItem("access_token"); // Remove token
+                    setIsAuthenticated(false);
+                  }}
+                >
+                  Logout
+                </Button>
+              ) : (
+                // Show Login button when not authenticated
+                <Link href="/signin">
+                  <Button >
+                    Login
+                  </Button>
+                </Link>
+              )}
+            
+            
           </NavigationMenuList>
         </NavigationMenu>
       </div>
